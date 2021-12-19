@@ -11,7 +11,8 @@
                     "id": "d905617e-477d-459e-b5e7-964a7dd8ba0d",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Attack",
@@ -19,7 +20,8 @@
                     "id": "1d27991a-8212-4e34-80e0-6cac3898ba09",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Interact",
@@ -27,7 +29,8 @@
                     "id": "84a3fa73-922c-4b9f-a58f-16783b3b2ab3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -233,28 +236,6 @@
                     "name": "",
                     "id": "f73d5b0e-7382-4055-bea9-7deaf369e6fa",
                     "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "54d2c8e3-838d-4618-8847-365a2e0eac1a",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3ca25fb8-1524-49b1-9e92-7d90b01c61b0",
-                    "path": "<iOSGameController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
