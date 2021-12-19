@@ -45,6 +45,7 @@ public class RubyController : MonoBehaviour
         inputActions.Ruby.Attack.performed += LaunchCog;
         inputActions.Ruby.Movement.performed += OnMovement;
         inputActions.Ruby.Movement.canceled += OnMovement;
+        inputActions.Ruby.Interact.performed += TalkToNPC;
     }
 
     // Update is called once per frame
@@ -61,26 +62,28 @@ public class RubyController : MonoBehaviour
         // {
         //     LaunchCog();
         // }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
-            if (hit.collider != null)
-            {
-                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
-                if (character != null)
-                {
-                    character.DisplayDialog();
-                }
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.X))
+        // {
+        //     RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+        //     if (hit.collider != null)
+        //     {
+        //         NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+        //         if (character != null)
+        //         {
+        //             character.DisplayDialog();
+        //         }
+        //     }
+        // }
     }
     
     void FixedUpdate()
     {
-        Vector2 position = rigidbody2d.position;
-        position = position + speed * currentInput * Time.deltaTime;
+        if(currentInput.magnitude>0.01){
+            Vector2 position = rigidbody2d.position;
+            position = position + speed * currentInput * Time.deltaTime;
 
-        rigidbody2d.MovePosition(position); 
+            rigidbody2d.MovePosition(position);
+        } 
         //================Movement=====================
         // horizontal = Input.GetAxis("Horizontal");
         // vertical = Input.GetAxis("Vertical");
@@ -136,6 +139,19 @@ public class RubyController : MonoBehaviour
         }
         if(context.canceled){
             currentInput = Vector2.zero;
+        }
+    }
+    void TalkToNPC(InputAction.CallbackContext context){
+        if(context.performed){
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                }
+            }
         }
     }
     public void PlaySound(AudioClip clip)
