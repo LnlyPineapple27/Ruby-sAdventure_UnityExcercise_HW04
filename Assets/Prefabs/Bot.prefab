@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   vertical: 1
-  changeTime: 5
+  changeTime: 8
   smokeEffect: {fileID: 7151932148932527251}
   robotFixedSound: {fileID: 8300000, guid: 4630e5e34131e2b4eb6d7de6ca449bf4, type: 3}
 --- !u!95 &9053952142025951932
@@ -180,7 +180,7 @@ AudioSource:
   m_GameObject: {fileID: 3065225512618044192}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c67381d0063c32545af3ae83e6bc8b25, type: 2}
   m_audioClip: {fileID: 8300000, guid: 733bc85f509fd794eb18f1dadb9926fc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

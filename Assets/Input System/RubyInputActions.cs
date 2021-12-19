@@ -53,6 +53,15 @@ public partial class @RubyInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause Game"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6b5e99b-6ada-4764-a0ac-da86310c819e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -286,6 +295,17 @@ public partial class @RubyInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdd95473-f7d2-4454-b73a-c43d4f1ca29f"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -297,6 +317,7 @@ public partial class @RubyInputActions : IInputActionCollection2, IDisposable
         m_Ruby_Movement = m_Ruby.FindAction("Movement", throwIfNotFound: true);
         m_Ruby_Attack = m_Ruby.FindAction("Attack", throwIfNotFound: true);
         m_Ruby_Interact = m_Ruby.FindAction("Interact", throwIfNotFound: true);
+        m_Ruby_PauseGame = m_Ruby.FindAction("Pause Game", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -359,6 +380,7 @@ public partial class @RubyInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Ruby_Movement;
     private readonly InputAction m_Ruby_Attack;
     private readonly InputAction m_Ruby_Interact;
+    private readonly InputAction m_Ruby_PauseGame;
     public struct RubyActions
     {
         private @RubyInputActions m_Wrapper;
@@ -366,6 +388,7 @@ public partial class @RubyInputActions : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Ruby_Movement;
         public InputAction @Attack => m_Wrapper.m_Ruby_Attack;
         public InputAction @Interact => m_Wrapper.m_Ruby_Interact;
+        public InputAction @PauseGame => m_Wrapper.m_Ruby_PauseGame;
         public InputActionMap Get() { return m_Wrapper.m_Ruby; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -384,6 +407,9 @@ public partial class @RubyInputActions : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_RubyActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_RubyActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_RubyActionsCallbackInterface.OnInteract;
+                @PauseGame.started -= m_Wrapper.m_RubyActionsCallbackInterface.OnPauseGame;
+                @PauseGame.performed -= m_Wrapper.m_RubyActionsCallbackInterface.OnPauseGame;
+                @PauseGame.canceled -= m_Wrapper.m_RubyActionsCallbackInterface.OnPauseGame;
             }
             m_Wrapper.m_RubyActionsCallbackInterface = instance;
             if (instance != null)
@@ -397,6 +423,9 @@ public partial class @RubyInputActions : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @PauseGame.started += instance.OnPauseGame;
+                @PauseGame.performed += instance.OnPauseGame;
+                @PauseGame.canceled += instance.OnPauseGame;
             }
         }
     }
@@ -406,5 +435,6 @@ public partial class @RubyInputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnPauseGame(InputAction.CallbackContext context);
     }
 }

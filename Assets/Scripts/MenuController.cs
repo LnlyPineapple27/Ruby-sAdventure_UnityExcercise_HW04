@@ -4,13 +4,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+
 public class MenuController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject OptionsMenu;
+    public AudioMixer audioMixer;
+    public float volumeDefault;
     void Start()
     {
-        
+        audioMixer.SetFloat("volume", volumeDefault);
     }
 
     // Update is called once per frame
