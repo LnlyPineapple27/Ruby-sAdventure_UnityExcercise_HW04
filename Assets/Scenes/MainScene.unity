@@ -11139,7 +11139,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8343899343784008576, guid: 46bf2218d0b9cee498301db84ec0e53a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343899343784008576, guid: 46bf2218d0b9cee498301db84ec0e53a, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Ruby
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8343899343784008576, guid: 46bf2218d0b9cee498301db84ec0e53a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 46bf2218d0b9cee498301db84ec0e53a, type: 3}
 --- !u!1001 &8794794241451942886
 PrefabInstance:
