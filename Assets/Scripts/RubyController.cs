@@ -20,8 +20,6 @@ public class RubyController : MonoBehaviour
     float invincibleTimer;
     
     Rigidbody2D rigidbody2d;
-    float horizontal;
-    float vertical;
     
     Animator animator;
     Vector2 lookDirection = new Vector2(1,0);
@@ -57,37 +55,17 @@ public class RubyController : MonoBehaviour
             if (invincibleTimer < 0)
                 isInvincible = false;
         }
-        
-        // if(Input.GetKeyDown(KeyCode.C))
-        // {
-        //     LaunchCog();
-        // }
-        // if (Input.GetKeyDown(KeyCode.X))
-        // {
-        //     RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
-        //     if (hit.collider != null)
-        //     {
-        //         NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
-        //         if (character != null)
-        //         {
-        //             character.DisplayDialog();
-        //         }
-        //     }
-        // }
     }
     
     void FixedUpdate()
     {
-        if(currentInput.magnitude>0.01){
+        if(currentInput.magnitude>0.1){
             Vector2 position = rigidbody2d.position;
             position = position + speed * currentInput * Time.deltaTime;
 
             rigidbody2d.MovePosition(position);
         } 
-        //================Movement=====================
-        // horizontal = Input.GetAxis("Horizontal");
-        // vertical = Input.GetAxis("Vertical");
-        
+
         Vector2 move = new Vector2(currentInput.x, currentInput.y);
         
         if(!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
@@ -95,8 +73,6 @@ public class RubyController : MonoBehaviour
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
         }
-
-
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", move.magnitude);

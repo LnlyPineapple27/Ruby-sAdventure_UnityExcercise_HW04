@@ -244,17 +244,6 @@ public class @RubyInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f88fc33b-a8c6-44aa-b3a7-24e958e261ef"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""f73d5b0e-7382-4055-bea9-7deaf369e6fa"",
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
@@ -268,6 +257,17 @@ public class @RubyInputActions : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""54d2c8e3-838d-4618-8847-365a2e0eac1a"",
                     ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ca25fb8-1524-49b1-9e92-7d90b01c61b0"",
+                    ""path"": ""<iOSGameController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
