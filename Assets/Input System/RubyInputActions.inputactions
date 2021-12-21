@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause Game",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "e6b5e99b-6ada-4764-a0ac-da86310c819e",
                     "expectedControlType": "Button",
@@ -281,7 +281,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause Game",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

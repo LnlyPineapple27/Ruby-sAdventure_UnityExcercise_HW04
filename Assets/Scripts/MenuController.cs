@@ -35,4 +35,7 @@ public class MenuController : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit game");
     }
+    public void PauseGame(){
+        MyGameManager.Instance.PauseGame();
+    }
 }

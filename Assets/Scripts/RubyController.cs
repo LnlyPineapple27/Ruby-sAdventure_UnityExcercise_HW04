@@ -44,6 +44,7 @@ public class RubyController : MonoBehaviour
         inputActions.Ruby.Movement.performed += OnMovement;
         inputActions.Ruby.Movement.canceled += OnMovement;
         inputActions.Ruby.Interact.performed += TalkToNPC;
+        inputActions.Ruby.Pause.performed += OnPauseGame;
     }
 
     // Update is called once per frame
@@ -128,6 +129,11 @@ public class RubyController : MonoBehaviour
                     character.DisplayDialog();
                 }
             }
+        }
+    }
+    void OnPauseGame(InputAction.CallbackContext context){
+        if(context.performed){
+            Debug.Log("Pause");
         }
     }
     public void PlaySound(AudioClip clip)
